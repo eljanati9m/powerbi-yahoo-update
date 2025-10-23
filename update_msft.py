@@ -15,10 +15,7 @@ end_date = today.strftime('%Y-%m-%d')
 
 # ---------- 2️⃣ Télécharger les données MSFT ----------
 msft = yf.Ticker("MSFT")
-
-df = msft.history(start="2023-01-01", end="2024-12-31", interval="1d")  # données quotidiennes
-
-#df = msft.history(start=start_date, end=end_date, interval="1d")  # données quotidiennes
+df = msft.history(start=start_date, end=end_date, interval="1d")  # données quotidiennes
 
 # ---------- 3️⃣ Nettoyer et préparer ----------
 df.reset_index(inplace=True)  # mettre la date dans une colonne normale
