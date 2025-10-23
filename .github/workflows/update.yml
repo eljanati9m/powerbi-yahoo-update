@@ -2,7 +2,7 @@ name: Update Yahoo Data
 
 on:
   schedule:
-    - cron: '0 6 * * *'   # Tous les jours à 6h UTC
+    - cron: '0 8 * * *'   # Tous les jours à 6h UTC
   workflow_dispatch:       # Permet de le lancer manuellement
 
 jobs:
