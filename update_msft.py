@@ -1,58 +1,31 @@
+# Installer les librairies si ce n'est pas déjà fait
+# pip install yfinance pandas
+
 import yfinance as yf
 import pandas as pd
 from datetime import datetime, timedelta
 
 # ---------- 1️⃣ Définir la période ----------
 today = datetime.today()
-two_years_ago = today - timedelta(days=2*365)
+two_years_ago = today - timedelta(days=2*365)  # environ 2 ans
 
+# Format pour affichage/filtrage
 start_date = two_years_ago.strftime('%Y-%m-%d')
 end_date = today.strftime('%Y-%m-%d')
 
-# ---------- 2️⃣ Télécharger les données ----------
-# on désactive group_by pour éviter les multi-index
-df = yf.download("MSFT", start=start_date, end=end_date, interval="1d", group_by='column', auto_adjust=False)
+# ---------- 2️⃣ Télécharger les données MSFT ----------
+msft = yf.Ticker("MSFT")
+df = msft.history(start=start_date, end=end_date, interval="1d")  # données quotidiennes
 
-# ---------- 3️⃣ Nettoyer ----------
-# Si les colonnes sont MultiIndex, on les aplatit
-if isinstance(df.columns, pd.MultiIndex):
-    df.columns = ['_'.join(filter(None, col)).strip() for col in df.columns.values]
+# ---------- 3️⃣ Nettoyer et préparer ----------
+df.reset_index(inplace=True)  # mettre la date dans une colonne normale
+df = df[['Date', 'Open', 'High', 'Low', 'Close', 'Volume']]  # garder seulement les colonnes utiles
 
-# Mettre la date comme colonne normale
-df.reset_index(inplace=True)
+# ---------- 4️⃣ Sauvegarder en CSV ----------
+csv_filename = "MSFT_2ans.csv"
+df.to_csv(csv_filename, index=False)
+print(f"CSV sauvegardé : {csv_filename}")
 
-# Choisir uniquement les colonnes nécessaires (en adaptant le nom si nécessaire)
-columns_to_keep = []
-for col in df.columns:
-    if 'Date' in col:
-        columns_to_keep.append(col)
-    elif 'Open' in col:
-        columns_to_keep.append(col)
-    elif 'High' in col:
-        columns_to_keep.append(col)
-    elif 'Low' in col:
-        columns_to_keep.append(col)
-    elif 'Close' in col:
-        columns_to_keep.append(col)
-    elif 'Volume' in col:
-        columns_to_keep.append(col)
-
-df = df[columns_to_keep]
-
-
-# certains environnements renvoient 'Adj Close' au lieu de 'Close', on corrige ça
-if 'Adj Close' in df.columns and 'Close' not in df.columns:
-    df.rename(columns={'Adj Close': 'Close'}, inplace=True)
-
-# garder uniquement les colonnes nécessaires si elles existent
-columns_to_keep = [col for col in ['Date', 'Open', 'High', 'Low', 'Close', 'Volume'] if col in df.columns]
-df = df[columns_to_keep]
-
-# ---------- 4️⃣ Sauvegarder en Excel ----------
-excel_filename = "MSFT_2ans.xlsx"
-df.to_excel(excel_filename, index=False)
-print(f"✅ Fichier Excel sauvegardé : {excel_filename}")
-
-# ---------- 5️⃣ Aperçu console ----------
+# ---------- 5️⃣ Afficher un aperçu ----------
 print(df.head())
-print(f"\n✅ Période : {start_date} → {end_date}")
+print(f"\nPériode : {start_date} à {end_date}")
