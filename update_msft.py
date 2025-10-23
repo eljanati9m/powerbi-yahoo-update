@@ -23,7 +23,8 @@ df = df[['Date', 'Open', 'High', 'Low', 'Close', 'Volume']]  # garder seulement 
 
 # ---------- 4️⃣ Sauvegarder en CSV ----------
 csv_filename = "MSFT_2ans.csv"
-df.to_csv(csv_filename, index=False)
+df.dropna(how='all', inplace=True)
+df.to_csv(csv_filename, index=False, encoding='utf-8', float_format='%.2f')
 print(f"CSV sauvegardé : {csv_filename}")
 
 # ---------- 5️⃣ Afficher un aperçu ----------
