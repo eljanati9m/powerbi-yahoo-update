@@ -25,8 +25,3 @@ df = df[['Date', 'Open', 'High', 'Low', 'Close', 'Volume']]  # garder seulement 
 csv_filename = "MSFT_2ans.csv"
 df.dropna(how='all', inplace=True)
 df.to_csv(csv_filename, index=False, encoding='utf-8', float_format='%.2f')
-print(f"CSV sauvegardé : {csv_filename}")
-
-# ---------- 5️⃣ Afficher un aperçu ----------
-print(df.head())
-print(f"\nPériode : {start_date} à {end_date}")
