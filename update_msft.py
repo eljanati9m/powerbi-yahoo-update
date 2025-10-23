@@ -14,7 +14,31 @@ end_date = today.strftime('%Y-%m-%d')
 df = yf.download("MSFT", start=start_date, end=end_date, interval="1d", group_by='column', auto_adjust=False)
 
 # ---------- 3️⃣ Nettoyer ----------
+# Si les colonnes sont MultiIndex, on les aplatit
+if isinstance(df.columns, pd.MultiIndex):
+    df.columns = ['_'.join(filter(None, col)).strip() for col in df.columns.values]
+
+# Mettre la date comme colonne normale
 df.reset_index(inplace=True)
+
+# Choisir uniquement les colonnes nécessaires (en adaptant le nom si nécessaire)
+columns_to_keep = []
+for col in df.columns:
+    if 'Date' in col:
+        columns_to_keep.append(col)
+    elif 'Open' in col:
+        columns_to_keep.append(col)
+    elif 'High' in col:
+        columns_to_keep.append(col)
+    elif 'Low' in col:
+        columns_to_keep.append(col)
+    elif 'Close' in col:
+        columns_to_keep.append(col)
+    elif 'Volume' in col:
+        columns_to_keep.append(col)
+
+df = df[columns_to_keep]
+
 
 # certains environnements renvoient 'Adj Close' au lieu de 'Close', on corrige ça
 if 'Adj Close' in df.columns and 'Close' not in df.columns:
