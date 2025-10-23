@@ -2,7 +2,7 @@ name: Update Yahoo Data
 
 on:
   schedule:
-    - cron: '0 8 * * *'   # Tous les jours à 6h UTC
+    - cron: '0 8 * * *'   # Tous les jours à 8h UTC
   workflow_dispatch:       # Permet de le lancer manuellement
 
 jobs:
@@ -19,7 +19,9 @@ jobs:
           python-version: '3.10'
 
       - name: Install dependencies
-        run: pip install yfinance pandas
+        run: |
+          python -m pip install --upgrade pip
+          pip install yfinance pandas openpyxl  # ajouter openpyxl pour Excel
 
       - name: Run update script
         run: python update_msft.py
@@ -29,5 +31,5 @@ jobs:
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
           git add MSFT_2ans.xlsx
-          git commit -m "Mise à jour automatique des données"
+          git commit -m "Mise à jour automatique des données" || echo "Rien à committer"
           git push
