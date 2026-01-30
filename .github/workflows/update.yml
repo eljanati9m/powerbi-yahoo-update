@@ -22,7 +22,7 @@ jobs:
         run: pip install yfinance pandas
 
       - name: Run update script
-        run: python update_msft.py
+        run: python extract_yfinance.py
 
       - name: Commit and push changes
         run: |
