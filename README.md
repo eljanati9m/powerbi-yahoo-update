@@ -33,6 +33,7 @@ The project demonstrates skills in **data extraction, automation, data visualiza
 ├── logos_light_mode.xlsx              # Assets for light theme visuals
 └── README.md                          # Project documentation
 ```
+---
 
 ## Data Pipeline
 1. **Data Extraction**  
@@ -48,3 +49,38 @@ The project demonstrates skills in **data extraction, automation, data visualiza
    Power BI connects to the dataset and refreshes visuals to reflect the latest data.
 
 ---
+
+## Dashboard Insights
+The Power BI dashboard provides insights such as:
+- Stock price evolution over time
+- Company performance comparison
+- Market trends and variability
+- Financial indicators for decision support
+
+The dashboard is designed for **clarity, interactivity, and business storytelling**.
+
+---
+
+
+## Technologies Used
+- **Python** (data extraction & automation)
+- **yfinance** (Yahoo Finance data extraction library)
+- **GitHub Actions**
+- **Power BI**
+- **CSV / Excel**
+- **Git & GitHub**
+
+---
+
+## Use Cases
+- Financial market analysis
+- Business intelligence reporting
+- Portfolio demonstration (Data Analyst / BI Analyst / Data Scientist)
+- Educational & learning purposes
+
+---
+
+## Notes
+- The Power BI dashboard is published using **Publish to Web**
+- Interactive access is public and does not require authentication
+- For full project details or collaboration opportunities, feel free to reach out
