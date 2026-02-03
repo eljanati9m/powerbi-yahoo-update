@@ -1,8 +1,5 @@
 # Yahoo Finance Analytics Dashboard
-![Python](https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge&logo=python&logoColor=white)
-![Power BI](https://img.shields.io/badge/Power%20BI-Data-yellow?style=for-the-badge&logo=microsoft-power-bi&logoColor=white)
-![Automation](https://img.shields.io/badge/Automation-RPA-orange?style=for-the-badge&logo=robotframework&logoColor=white)
-![WhatPulse](https://img.shields.io/whatpulse/:metric/:userType/:id)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/:packageName)
 
 ## Overview
 **Yahoo Finance Analytics Dashboard** is an end-to-end data analytics project that automates financial data collection from **Yahoo Finance**, processes it using **Python**, and visualizes key insights through an interactive **Power BI dashboard** published online.
