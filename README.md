@@ -10,3 +10,25 @@ The project demonstrates skills in **data extraction, automation, data visualiza
 
 ---
 
+##  Project Features
+- Automated financial data extraction from **Yahoo Finance**
+- Scheduled updates using **GitHub Actions**
+- Clean and structured datasets for BI usage
+- Interactive Power BI dashboard (web-published)
+- Optimized visuals (dark & light mode assets)
+- Portfolio-ready analytics project
+
+---
+
+## 🗂️ Repository Structure
+```bash
+.
+├── .github/workflows/
+│   └── update.yml            # GitHub Actions workflow for automated updates
+├── Dashboards/
+│   └── PowerBI_Report.pbix   # Power BI dashboard file
+├── 40_entreprises_5ans.csv   # Financial data (5-year period)
+├── extract_yfinance.py       # Python script for Yahoo Finance data extraction
+├── logos_dark_mode.xlsx      # Assets for dark theme visuals
+├── logos_light_mode.xlsx     # Assets for light theme visuals
+└── README.md                 # Project documentation
