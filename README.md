@@ -1,1 +1,3 @@
-# powerbi-yahoo-update
+# Yahoo Finance Analytics Dashboard
+
+---
