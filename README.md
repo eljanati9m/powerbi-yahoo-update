@@ -1,3 +1,1 @@
 # Yahoo Finance Analytics Dashboard
-
----
