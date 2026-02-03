@@ -84,3 +84,13 @@ The dashboard is designed for **clarity, interactivity, and business storytellin
 - The Power BI dashboard is published using **Publish to Web**
 - Interactive access is public and does not require authentication
 - For full project details or collaboration opportunities, feel free to reach out
+
+## 🤝 Contributing
+Contributions are welcome!  
+Please open an issue to discuss proposed changes or submit a pull request for improvements, bug fixes, or enhancements.
+
+---
+
+## 📄 License
+This project is licensed under the **MIT License**.
+
