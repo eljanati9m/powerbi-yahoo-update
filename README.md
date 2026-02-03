@@ -24,11 +24,27 @@ The project demonstrates skills in **data extraction, automation, data visualiza
 ```bash
 .
 ├── .github/workflows/
-│   └── update.yml            # GitHub Actions workflow for automated updates
+│   └── update.yml                     # GitHub Actions workflow for automated updates
 ├── Dashboards/
-│   └── PowerBI_Report.pbix   # Power BI dashboard file
-├── 40_entreprises_5ans.csv   # Financial data (5-year period)
-├── extract_yfinance.py       # Python script for Yahoo Finance data extraction
-├── logos_dark_mode.xlsx      # Assets for dark theme visuals
-├── logos_light_mode.xlsx     # Assets for light theme visuals
-└── README.md                 # Project documentation
+│   └── Yahoo Finance Analytics.pbix   # Power BI dashboard file
+├── 40_entreprises_5ans.csv            # Financial data (5-year period)
+├── extract_yfinance.py                # Python script for Yahoo Finance data extraction
+├── logos_dark_mode.xlsx               # Assets for dark theme visuals
+├── logos_light_mode.xlsx              # Assets for light theme visuals
+└── README.md                          # Project documentation
+```
+
+## Data Pipeline
+1. **Data Extraction**  
+   Financial data is retrieved programmatically from **Yahoo Finance** using Python.
+
+2. **Automation**  
+   A **GitHub Actions workflow** (`update.yml`) runs the extraction script automatically to keep datasets up to date.
+
+3. **Data Storage**  
+   Updated data is saved as structured CSV files, ready for analysis.
+
+4. **Visualization**  
+   Power BI connects to the dataset and refreshes visuals to reflect the latest data.
+
+---
