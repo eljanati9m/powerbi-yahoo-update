@@ -29,7 +29,8 @@ The project demonstrates skills in **data extraction, automation, data visualiza
 ├── Dashboards/
 │   └── Yahoo Finance Analytics.pbix   # Power BI dashboard file
 ├── 40_entreprises_5ans.csv            # Financial data (5-year period)
-├── LICENSE                            # MIT license 
+├── LICENSE                            # MIT license
+├── README.md
 ├── extract_yfinance.py                # Python script for Yahoo Finance data extraction
 ├── logos_dark_mode.xlsx               # Assets for dark theme visuals
 ├── logos_light_mode.xlsx              # Assets for light theme visuals
